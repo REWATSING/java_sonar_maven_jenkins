@@ -19,7 +19,7 @@ pipeline {
                 script {
                     def mvn = tool 'Maven'
                     withSonarQubeEnv {
-                        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java_sonar_mave_jenkins_project -Dsonar.projectName='java_sonar_mave_jenkins_project'"
+                        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java_sonar_mave_jenkins_project -Dsonar.projectName='java_sonar_mave_jenkins_project' -Dsonar.token=sqp_7fc27834d66aed3498efcbef7e693c4402cac453"
                     }
                 }
             }
