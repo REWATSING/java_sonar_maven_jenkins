@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://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@github.com/REWATSING/java_sonar_maven_jenkins.git'
+                git branch: 'master', url: 'https://github.com/REWATSING/java_sonar_maven_jenkins.git'
             }
         }
 
@@ -14,10 +14,13 @@ pipeline {
             }
         }
 
-        stage('SonarQube Scan') {
+        stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQubeServer') {
-                    sh 'mvn sonar:sonar'
+                script {
+                    def mvn = tool 'Default Maven'
+                    withSonarQubeEnv {
+                        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java_sonar_mave_jenkins_project -Dsonar.projectName='java_sonar_mave_jenkins_project'"
+                    }
                 }
             }
         }
