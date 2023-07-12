@@ -17,12 +17,11 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
                 <configuration>
-                    <source>17</source> <!-- or the Java version you're using -->
-                    <target>17</target> <!-- or the Java version you're using -->
-                    <outputDirectory>target/classes</outputDirectory> <!-- specify your desired output directory -->
+                    <warName>my-web-application</warName>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
@@ -43,4 +42,3 @@
 
         
 </project>
-
