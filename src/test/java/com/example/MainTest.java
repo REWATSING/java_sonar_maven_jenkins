@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class MainTest {
@@ -8,6 +9,11 @@ public class MainTest {
     public void testDivideByZero() {
         int x = 5;
         int y = 0;
-        int result = x / y;
+        try {
+            int result = x / y;
+        } catch (ArithmeticException e) {
+            assertEquals("/ by zero", e.getMessage());
+            throw e;
+        }
     }
 }
