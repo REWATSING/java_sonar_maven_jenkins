@@ -28,6 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Run the Docker container
+                sh 'docker build -t rewat_tomcat_container .'
                 sh 'docker run -d -p 9090:9090 --name rewat_tomcat_container tomcat:latest'
                 
 
